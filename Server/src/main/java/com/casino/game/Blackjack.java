@@ -118,7 +118,7 @@ public class Blackjack extends Game {
                     player.setMoney(player.getMoney() + getPlayerMises().get(player) * 2);
                     getPlayerMises().remove(player);
                     player.getSocket().sendPacket(new PlayerInformationPacket(player, null));
-                    
+
                     try(FileWriter writer = new FileWriter(SaveManager.SAVE_PLAYER_FOLDER + "/" + player.getUsername() + ".json")) {
                         Main.gson.toJson(player, writer);
                         writer.flush();
